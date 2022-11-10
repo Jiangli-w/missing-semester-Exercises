@@ -4,11 +4,12 @@
 安装完成之后点击运行，在命令行中输入`echo $SHELL`，得到如下结果
 > /bin/bash
 
-## ex_2
+## [ex_2](./ex_2/mkdir_missing.sh)
 ```
 $ cd /tmp
 $ mkdir missing
 ```
+
 
 ## ex_3
 `$ man touch`
