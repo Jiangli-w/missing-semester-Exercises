@@ -14,7 +14,7 @@ mkdir missing
 PS.如果想自己创建文件，运行之前用`chmod +x [filneme]`给.sh文件加上运行权限。下同，不再赘述
 
 ## ex_3
-`man touch`
+```man touch```
 
 `./man_touch`可运行[man_touch.sh](./ex_3/man_touch.sh)
 
