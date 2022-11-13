@@ -20,12 +20,13 @@ PS.如果想自己创建文件，运行之前用`chmod +x [filneme]`给.sh文件
 
 ## ex_4
 ```
-$ cd missing
-$ touch semester
+touch /tmp/missing/semester
 ```
+`./touch_semester`可运行[touch_semester.sh](./ex_4/touch_semester.sh)
 
 ## ex_5
 ```
-$ echo '#!/bin/sh' > semester
-$ echo curl --head --silent https://missing.csail.mit.edu >> semester
+echo '#!/bin/sh' > /tmp/missing/semester
+$ echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
 ```
+`./echo_semester.sh`可运行[echo_semester.sh](./ex_5/echo_semester.sh)
