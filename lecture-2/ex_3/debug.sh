@@ -1,6 +1,6 @@
 for((i=1;;i++))
 do
-    ./test3.sh 2>out.txt
+    ./test.sh 2>out.txt
     if [ $? != 0 ]; then
         echo "failed after $i times"
         cat out.txt
