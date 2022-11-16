@@ -1,4 +1,4 @@
-# lectur-2 练习
+# lecture-2 练习
 ## ex_1
 `man ls`查看ls详细信息
 
