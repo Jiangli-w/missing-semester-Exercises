@@ -55,7 +55,7 @@ echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
 
 会出现这种问题是因为semester文件没有执行权限，此时要用`chmod +x /tmp/missing/semester`给semester文件加上执行权限
 
-再次输入`/tmp/missing/semester`即可正常执行，得到运行结果
+再次输入`/tmp/missing/semester`即可正常执行，得到如下运行结果:
 > HTTP/2 200
 > server: GitHub.com
 > content-type: text/html; charset=utf-8
