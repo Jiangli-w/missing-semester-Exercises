@@ -23,8 +23,8 @@
 
 #### ex_2
 ```
-cd /tmp
-mkdir missing
+$ cd /tmp
+$ mkdir missing
 ```
 也可以直接用`./mkdir_missing.sh`运行[mkdir_missing.sh](./lecture-1/ex_2/mkdir_missing.sh)达到同样效果
 
@@ -32,20 +32,20 @@ PS.如果想自己创建文件，运行之前用`chmod +x [filneme]`给.sh文件
 
 #### ex_3
 ```
-man touch
+$ man touch
 ```
 
 
 #### ex_4
 ```
-touch /tmp/missing/semester
+$ touch /tmp/missing/semester
 ```
 
 
 #### ex_5
 ```
-echo '#!/bin/sh' > /tmp/missing/semester
-echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
+$ echo '#!/bin/sh' > /tmp/missing/semester
+$ echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
 ```
 
 
@@ -86,7 +86,7 @@ echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
 
 #### ex_10
 ```
-/tmp/missing/semester | grep last-modified > ~/last-modified.txt
+$ /tmp/missing/semester | grep last-modified > ~/last-modified.txt
 ```
 
 
@@ -95,7 +95,7 @@ echo curl --head --silent https://missing.csail.mit.edu >> /tmp/missing/semester
 
 我用的是拯救者Y7000P2019
 ```
-cat /sys/class/power_supply/battery/capacity
+$ cat /sys/class/power_supply/battery/capacity
 ```
 
 ### lecture-2
@@ -145,7 +145,7 @@ done
 
 #### ex_4
 ```
-find . -type f -name "*.html" | xargs -d '\n' tar -cvzf html.zip
+$ find . -type f -name "*.html" | xargs -d '\n' tar -cvzf html.zip
 ```
 
 `./find_tar.sh`运行[find_tar.sh](./lecture-2/ex_4/find_tar.sh)
@@ -157,7 +157,7 @@ find . -type f -name "*.html" | xargs -d '\n' tar -cvzf html.zip
 
 #### ex_2
 ``` 
-curl -L https://missing.csail.mit.edu/2020/files/vimrc -o ~/.vimrc
+$ curl -L https://missing.csail.mit.edu/2020/files/vimrc -o ~/.vimrc
 ```
 
 一般下载完成后重启vim就能看到插件安装前后的变化了
@@ -182,6 +182,31 @@ let g:ctrlp_working_path_mode = 'ra' #设置默认路径为当前路径
 
 
 ### lecture-4
+#### ex_1
+[交互式正则表达式](https://regexone.com/)网站有详细的教程，练习以及对应练习的答案
+
+#### ex_2
+我用的wsl，在题中所给的目录下没有对应的words文件，所以要先下载words词表
+```
+$ wget https://github.com/dwyl/english-words/archive/refs/heads/master.zip
+```
+下载完成之后先解压
+```
+$ unzip english-words-master
+```
+`./lecture-4/ex_2/a_3times.sh`可运行[a_3times.sh](./ex_2/a_times.sh)
+或者
+```
+$ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l
+```
+得到结果
+> 12248
+
+找出其中出现频率前三的末尾两个字母
+```
+
+
+
 ### lecture-6
 #### ex_2
 ```
