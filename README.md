@@ -173,6 +173,7 @@ $ curl -L https://missing.csail.mit.edu/2020/files/vimrc -o ~/.vimrc
 let g:ctrlp_map ='<c-p<'
 let g:ctrlp_cmd ='CtrlP'
 let g:ctrlp_working_path_mode = 'ra' #设置默认路径为当前路径
+```
 
 #### ex_4--ex_6
 这几个练习都是为了熟悉vim的使用，以提高效率，可选择性跳过
@@ -204,8 +205,23 @@ $ cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}
 
 找出其中出现频率前三的末尾两个字母
 ```
+cat $(pwd)/english-words-master/words.txt | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
+```
+`./lecture-4/ex_2/MostFreq3Tails.sh`可运行[MostFreq3Tails.sh](./lecture-4/ex_2/MostFreq3Tails.sh)
 
+得到结果
+> 1149 ia <br>
+> 1176 an <br>
+> 1333 al <br>
 
+词尾有多少种两个字母的组合
+```
+cat ./english-words-master/words.txt | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq | wc -l
+```
+`./lecture-4/ex_2/2letter_cobi_cout.sh`可运行[2letter_combi_cout.sh](./lecture-4/ex_2/2letter_combi_cout.sh)
+
+得到结果
+> 217
 
 ### lecture-6
 #### ex_2
