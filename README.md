@@ -3,19 +3,27 @@
 [missing-semester](https://missing.csail.mit.edu/2020/)
 
 ## 课后练习
-[lecture-1](#lecture-1)
+[lecture-1 &nbsp;&nbsp; Course overview + the shell](#lecture-1-course-overview--the-shell)
 
-[lecture-2](#lecture-2)
+[lecture-2 &nbsp;&nbsp; Shell Tools and Scripting](#lecture-2-shell-tools-and-scripting)
 
-[lecture-3](#lecture-3)
+[lecture-3 &nbsp;&nbsp; Editors(Vim)](#lecture-3-editorsvim)
 
-[lecture-4](#lecture-4)
+[lecture-4 &nbsp;&nbsp; Data Wrangling](#lecture-4-data-wrangling)
 
-[lecture-6](#lecture-6)
+[lecture-5 &nbsp;&nbsp; Command-line Environment](#lecture-5-command-line-environment)
 
-[lecture-7](#lecture-7)
+[lecture-6 &nbsp;&nbsp; Version Control(Git)](#lecture-6-version-controlgit)
 
-### lecture-1
+[lecture-7 &nbsp;&nbsp; Debugging and Profiling](#lecture-7-debugging-and-profiling)
+
+[lecture-8 &nbsp;&nbsp; Metaprogramming](#lecture-8-metaprogramming)
+
+[lecture-9 &nbsp;&nbsp; Security and Cryptography](#lecture-9-security-and-cryptography)
+
+[lecture-10 &nbsp;Potpourri](#lecture-10-potpourri)
+
+### lecture-1 Course overview + the shell
 #### ex_1 
 我用的wsl，这是微软官方的[安装教程](https://learn.microsoft.com/zh-cn/windows/wsl/install)<br>
 安装完成之后点击运行，在命令行中输入`echo $SHELL`，得到如下结果
@@ -98,7 +106,7 @@ $ /tmp/missing/semester | grep last-modified > ~/last-modified.txt
 $ cat /sys/class/power_supply/battery/capacity
 ```
 
-### lecture-2
+### lecture-2 Shell Tools and Scripting
 #### ex_1
 `man ls`查看ls详细信息
 
@@ -151,7 +159,7 @@ $ find . -type f -name "*.html" | xargs -d '\n' tar -cvzf html.zip
 `./find_tar.sh`运行[find_tar.sh](./lecture-2/ex_4/find_tar.sh)
 
 
-### lecture-3
+### lecture-3 Editors(Vim)
 #### ex_1
 `vimtutor`
 
@@ -182,7 +190,7 @@ let g:ctrlp_working_path_mode = 'ra' #设置默认路径为当前路径
 
 
 
-### lecture-4
+### lecture-4 Data Wrangling
 #### ex_1
 [交互式正则表达式](https://regexone.com/)网站有详细的教程，练习以及对应练习的答案
 
@@ -223,7 +231,21 @@ cat ./english-words-master/words.txt | tr "[:upper:]" "[:lower:]" | grep -E "^([
 得到结果
 > 217
 
-### lecture-6
+#### ex_3
+正则处理文件之前，文件已经被清空了，所以应该先创建一个备份文件（一般后缀为`.bak`）
+```
+sed -i.bak s/REGEX/SUBSTITUTION/ input.txt > input.txt
+```
+
+#### ex_4-5
+我所使用的是windows下的wsl，严格意义上并不算是真正的系统，只是个应用，所以没有系统日志，查看不了Linux的最近开机时间，故而跳过
+
+### lecture-5 Command-line Environment
+#### Job control
+
+
+
+### lecture-6 Version Control(Git)
 #### ex_2
 ```
 git clone https://github.com/missing-semester/missing-semester
@@ -248,7 +270,15 @@ git blame _config.yml | grep collecthons
 git show a88b4eac
 ```
 
-### lecture-7
+### lecture-7 Debugging and Profiling
 #### ex_1
 由于我用的wsl， 没有系统日志， 故而此练习跳过
+
+### lecture-8 Metaprogramming
+
+
+### lecture-9 Security and Cryptography
+
+
+### lecture-10 Potpourri
 
