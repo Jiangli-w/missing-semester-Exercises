@@ -17,11 +17,7 @@
 
 [lecture-7 &nbsp;&nbsp; Debugging and Profiling](#lecture-7-debugging-and-profiling)
 
-[lecture-8 &nbsp;&nbsp; Metaprogramming](#lecture-8-metaprogramming)
 
-[lecture-9 &nbsp;&nbsp; Security and Cryptography](#lecture-9-security-and-cryptography)
-
-[lecture-10 &nbsp;Potpourri](#lecture-10-potpourri)
 
 ### lecture-1 Course overview + the shell
 #### ex_1 
@@ -242,43 +238,116 @@ sed -i.bak s/REGEX/SUBSTITUTION/ input.txt > input.txt
 
 ### lecture-5 Command-line Environment
 #### Job control
+##### ex_1
+```
+sleep 10000
+Ctrl-z
+bg
+```
+```
+pgrep sleep 10000
+```
+```
+pkill -f sleep
+```
+
+##### ex_2
+```
+sleep 60 & 
+pgrep sleep | wait; ls
+```
+```
+pidwait()
+{
+	while kill -0 $1
+	do 
+	sleep 1 
+	done 
+	ls
+}
+```
+
+#### Aliases
+##### ex_1
+```
+alias dc=cd 
+```
+
+##### ex_2
+```history | awk '{$1="";print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10
+```
+>	14 exit<br>
+	15 vim ex.py <br>
+	15 vim lab03.py <br>
+	16 vim lab02.py <br>
+    19 python3 <br>
+    22 git push origin master <br>
+    23 ll <br>
+    39 cd .. <br>
+    65 cd <br>
+    240 ls
+
 
 
 
 ### lecture-6 Version Control(Git)
+#### ex_1
+[Learn Git Branching](https://learngitbranching.js.org/)
+
 #### ex_2
+先将仓库下载下来
 ```
 git clone https://github.com/missing-semester/missing-semester
 ```
 
-先将课程仓库下载下来
-
+将版本历史可视化并进行搜索
 ```
 git log --all --graph --decorate
 ```
 
-将版本历史可视化并进行搜索
-
+查看是谁最后修改了`README.md`文件
 ```
 git log READEME.md
 ```
 
-查看是谁最后修改了`README.md`文件
-
+最后一次修改`_config.yml`文件中`collections:`行时的提交信息
 ```
 git blame _config.yml | grep collecthons
 git show a88b4eac
 ```
 
+#### ex_5
+```
+cd ~/.gitconfig
+```
+
+在文件中添加
+```
+[alias]
+	graph = log --all --graph --decorate --online
+```
+
+
 ### lecture-7 Debugging and Profiling
+#### **debug**
 #### ex_1
 由于我用的wsl， 没有系统日志， 故而此练习跳过
 
-### lecture-8 Metaprogramming
+#### ex_2
+[pdb](https://github.com/spiside/pdb-tutorial)
 
+#### ex_3
+可以在vim中通过neomake插件集成shellcheck，只需要在`~/.vimrc`文件中加入如下代码：
+```
+call plug#begin()
+Plug 'neomake/neomake'
+call plug#end()
+```
+然后再在vim中执行`:PlugInstall`安装插件 <br>
 
-### lecture-9 Security and Cryptography
+用vim打开需要检查的脚本文件
+```
+vim sp.sh
+```
 
-
-### lecture-10 Potpourri
-
+执行`:Neomake`即可进行shellcheck检查，光标移动到对应行可以看到警告和错误信息
